@@ -512,20 +512,25 @@
 
     const bakeryInventory = {
       breads: [
-        { id: 1, name: "Fresh Milk Bread", desc: "Super soft, fluffy, and baked daily.", price: 60, tag: "Fresh" },
-        { id: 2, name: "Whole Wheat Bread", desc: "100% whole grain fiber-rich bread.", price: 80, tag: "Healthy" }
+        { id: 1, name: "Fluffy Bread (175g)", desc: "Super soft, light, and perfectly baked fresh daily.", price: 20, tag: "Fresh" },
+        { id: 2, name: "Fluffy Bread (80g)", desc: "Perfect smaller loaf, baked fresh daily.", price: 10, tag: "Fresh" },
+        { id: 3, name: "Slice Cake (12 Pieces)", desc: "Delicious sweet cake slices perfect for tea time.", price: 60, tag: "Classic Pack" }
       ],
       biscuits: [
-        { id: 3, name: "Choco Chip Cookies", desc: "Buttery, chewy cookies packed with dark chocolate chips.", price: 100, tag: "Pack of 5" },
-        { id: 4, name: "Premium Jeera Bites", desc: "Roasted cumin biscuits, sweet & salty.", price: 90, tag: "Classic" }
+        { id: 4, name: "Sweet Biscuit (400g)", desc: "Perfectly baked sugary crunch snacks for everyone.", price: 120, tag: "400g Pack" },
+        { id: 5, name: "Salted Biscuit (400g)", desc: "Crispy, savory delights with balanced salt crust layers.", price: 110, tag: "400g Pack" }
       ],
       snacks: [
-        { id: 5, name: "Baked Pizza Pockets", desc: "Flaky pastry filled with mozzarella, corn, and marinara.", price: 45, tag: "Warm" },
-        { id: 6, name: "Butter Croissant", desc: "Flaky, golden layers made with premium butter.", price: 110, tag: "Buttery" }
+        { id: 6, name: "Veg Patties", desc: "Crispy puff pastry stuffed with spiced mixed vegetables.", price: 20, tag: "Warm Snack" },
+        { id: 7, name: "Egg Patties", desc: "Golden flaky shell layer featuring seasoned egg filling.", price: 30, tag: "Warm Snack" },
+        { id: 8, name: "Chicken Patties", desc: "Savory seasoned minced chicken inside a baked golden pastry.", price: 40, tag: "Warm Snack" },
+        { id: 9, name: "Samosa", desc: "Traditional crisp deep-fried crust packed with spiced potatoes.", price: 20, tag: "Freshly Fried" },
+        { id: 10, name: "Cream Roll", desc: "Sweet flaky baked cylinder tubes filled with luscious sweet cream.", price: 20, tag: "Sweet Treat" },
+        { id: 11, name: "Cream Bun", desc: "Soft pillow bun packed to the brim with fluffy sweet frosting.", price: 15, tag: "Sweet Treat" },
+        { id: 12, name: "Paneer Patties", desc: "Puff pastry turnover stuffed with rich spiced cottage cheese.", price: 30, tag: "Warm Snack" }
       ],
       cakes: [
-        { id: 7, name: "Chocolate Fudge Cake", desc: "Rich chocolate layers iced with dark fudge frosting.", price: 550, tag: "Eggless" },
-        { id: 8, name: "Vanilla Cupcake Box", desc: "Delicate vanilla crumbs with whipped bakery frosting.", price: 120, tag: "Pack of 2" }
+        { id: 13, name: "Chocolate Fudge Cake", desc: "Rich chocolate layers iced with dark fudge frosting.", price: 550, tag: "Eggless Premium" }
       ]
     };
 
@@ -552,6 +557,88 @@
       const defaultContent = document.getElementById('default-browse-content');
       const resultsList = document.getElementById('search-results-list');
       const heading = document.getElementById('search-results-heading');
+      
+      function handleItemBoxAction(productId, productName, basePrice, categoryKey) {
+      const item = bakeryInventory[categoryKey].find(i => i.id === productId);
+      if (!item) return;
+
+      // If item has size/weight options, pop open an interactive choices prompt
+      if (item.options && item.options.length > 0) {
+        openVariantSelectionModal(item);
+      } else {
+        // Direct addition for standard items without option criteria
+        addToCartWithOptions(productId, productName, basePrice, "");
+      }
+    }
+
+    function openVariantSelectionModal(item) {
+      // Remove any pre-existing modal container to prevent duplicates
+      const oldModal = document.getElementById('variant-popup-overlay');
+      if (oldModal) oldModal.remove();
+
+      // Create an elegant, smooth pop-up selector modal overlay
+      const modalHtml = `
+        <div id="variant-popup-overlay" class="fixed inset-0 bg-black/60 z-[70] flex items-center justify-center p-6 backdrop-blur-sm">
+          <div class="bg-white dark:bg-[#1c150f] rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-amber-100 dark:border-amber-900/50 transform scale-95 transition-all duration-200">
+            <h3 class="text-lg font-black heading-serif text-amber-950 dark:text-amber-100 mb-1">Select Variant</h3>
+            <p class="text-xs text-amber-600 font-semibold mb-4">Choose a size for ${item.name}</p>
+            
+            <div class="space-y-2.5 mb-6">
+              ${item.options.map((opt, idx) => `
+                <label class="flex items-center justify-between p-3.5 border border-amber-100 dark:border-amber-900 rounded-xl bg-amber-50/10 dark:bg-transparent cursor-pointer hover:border-amber-500 transition-all">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="popup-variant-choice" value="${opt.name}|${opt.price}" ${idx === 0 ? 'checked' : ''} class="w-4 h-4 accent-amber-700">
+                    <span class="text-sm font-bold text-amber-950 dark:text-amber-50">${opt.name}</span>
+                  </div>
+                  <span class="text-sm font-black text-amber-900 dark:text-amber-200">₹${opt.price}</span>
+                </label>
+              `).join('')}
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="document.getElementById('variant-popup-overlay').remove()" class="w-full bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-300 font-bold py-3 rounded-xl text-xs uppercase tracking-wider text-center">
+                Cancel
+              </button>
+              <button onclick="confirmVariantAddition(${item.id}, '${item.name}')" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-extrabold py-3 rounded-xl text-center shadow-md text-xs uppercase tracking-wider">
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', modalHtml);
+    }
+
+    function confirmVariantAddition(productId, productName) {
+      const selectedOption = document.querySelector('input[name="popup-variant-choice"]:checked');
+      if (!selectedOption) return;
+
+      const [variantName, priceStr] = selectedOption.value.split('|');
+      const finalPrice = parseInt(priceStr, 10);
+
+      addToCartWithOptions(productId, productName, finalPrice, variantName);
+      document.getElementById('variant-popup-overlay').remove();
+    }
+
+    function addToCartWithOptions(productId, productName, itemPrice, variantName) {
+      const uniqueCartId = variantName ? `${productId}-${variantName}` : `${productId}`;
+      
+      const discoveredMatch = applicationCartMatrix.find(record => record.cartId === uniqueCartId);
+      if (discoveredMatch) {
+        discoveredMatch.itemQuantity += 1;
+      } else {
+        applicationCartMatrix.push({
+          cartId: uniqueCartId,
+          id: productId,
+          itemName: productName,
+          itemPrice: itemPrice,
+          variantName: variantName,
+          itemQuantity: 1
+        });
+      }
+      saveCart();
+      renderGlobalCartState();
+    }
 
       if (query.length > 0) {
         clearBtn.classList.remove('hidden');
@@ -604,7 +691,7 @@
               <span class="block text-lg font-black text-amber-950 dark:text-amber-100">₹${item.price}</span>
             </div>
           </div>
-          <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})" class="w-full bg-amber-50 hover:bg-amber-700 dark:bg-amber-950/20 hover:text-white border border-amber-700/20 text-amber-800 dark:text-amber-300 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
+          <button onclick="handleItemBoxAction(${item.id}, '${item.name}', ${item.price}, '${categoryKey}')" class="w-full bg-amber-50 hover:bg-amber-700 dark:bg-amber-950/20 hover:text-white border border-amber-700/20 text-amber-800 dark:text-amber-300 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
             + Add to Custom Box
           </button>
         </div>
@@ -925,6 +1012,17 @@
       renderGlobalCartState();
     }
 
+   function modifyCartDelta(cartUniqueId, relationalOperatorDelta) {
+      const discoveredMatch = applicationCartMatrix.find(record => record.cartId === cartUniqueId);
+      if (!discoveredMatch) return;
+      discoveredMatch.itemQuantity += relationalOperatorDelta;
+      if (discoveredMatch.itemQuantity <= 0) {
+        applicationCartMatrix = applicationCartMatrix.filter(record => record.cartId !== cartUniqueId);
+      }
+      saveCart();
+      renderGlobalCartState();
+    }
+
     // Save/Load helpers
     function saveCart() {
       localStorage.setItem('rtg-cart', JSON.stringify(applicationCartMatrix));
@@ -1001,7 +1099,6 @@
       applicationCartMatrix.forEach((product, internalIndex) => {
         aggregatedProductsString += `${internalIndex + 1}. ${product.itemQuantity}x ${product.itemName} (₹${product.itemPrice * product.itemQuantity})\n`;
       });
-
       const transactionStringLayout = 
         `✨ *NEW ORDER - ${BAKERY_NAME.toUpperCase()}* ✨\n\n` +
         `🧾 *Order ID:* ${orderId}\n` +
