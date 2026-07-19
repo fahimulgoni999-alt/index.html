@@ -6,7 +6,7 @@
   <title>RTG Bakery | Premium Fresh Treats</title>
   
   <!-- Leaflet.js CSS for Free OpenStreetMap -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha255-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -97,7 +97,7 @@
     <section class="relative bg-gradient-to-br from-amber-50 to-orange-100/50 dark:from-amber-950/20 dark:to-orange-950/10 border border-amber-100/70 dark:border-amber-900/40 rounded-3xl p-8 md:p-12 mb-8 overflow-hidden warm-glow">
       <div class="absolute -right-10 -bottom-10 text-9xl opacity-10 dark:opacity-5 select-none heading-serif font-bold text-amber-300">RTG</div>
       <div class="max-w-xl relative z-10">
-        <span onclick="showView('quality-view')" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 border border-amber-200 dark:border-amber-800 text-amber-850 dark:text-amber-200 text-xs font-bold uppercase tracking-wider mb-4 cursor-pointer hover:bg-amber-200 transition-colors">
+        <span onclick="showView('quality-view')" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-xs font-bold uppercase tracking-wider mb-4 cursor-pointer hover:bg-amber-200 transition-colors">
           ✨ Baked Fresh on Order • Read Our Promise →
         </span>
         <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-amber-950 dark:text-amber-100 heading-serif leading-tight">
@@ -141,22 +141,22 @@
       </div>
       
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto px-2">
-        <div onclick="openSpecialCategoryView('breads')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
+        <button onclick="openSpecialCategoryView('breads')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
           <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍞</span>
           <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Breads</span>
-        </div>
-        <div onclick="openSpecialCategoryView('biscuits')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
+        </button>
+        <button onclick="openSpecialCategoryView('biscuits')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
           <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍪</span>
           <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Biscuits</span>
-        </div>
-        <div onclick="openSpecialCategoryView('snacks')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
+        </button>
+        <button onclick="openSpecialCategoryView('snacks')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
           <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍕</span>
           <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Snacks</span>
-        </div>
-        <div onclick="openSpecialCategoryView('cakes')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
+        </button>
+        <button onclick="openSpecialCategoryView('cakes')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
           <span class="text-4xl group-hover:scale-110 transition-transform select-none">🎂</span>
           <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Cakes</span>
-        </div>
+        </button>
       </div>
     </section>
 
@@ -277,7 +277,7 @@
             </div>
             <div>
               <label class="block text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300 mb-2">WhatsApp Number</label>
-              <input id="cust-phone" type="tel" required class="w-full bg-[#FAF6F0]/30 dark:bg-transparent border border-amber-100 dark:border-amber-900 rounded-xl px-4 py-3.5 focus:outline-none focus:border-amber-500 text-sm text-amber-950 dark:text-amber-50 font-medium" placeholder="e.g. 9876543210">
+              <input id="cust-phone" type="tel" required class="w-full bg-[#FAF6F0]/30 dark:bg-transparent border border-amber-100 dark:border-amber-900 rounded-xl px-4 py-3.5 focus:outline-none focus:border-amber-500 text-sm text-amber-950 dark:text-amber-50 font-medium" placeholder="e.g. 8638628951">
             </div>
           </div>
 
@@ -290,6 +290,10 @@
             <p class="text-[10px] text-amber-800/60 dark:text-amber-400/60 mt-2 italic flex items-center gap-1">
               <span>💡</span> Tip: Double click, tap, or drag the red pin anywhere on the Guwahati map to update delivery coordinates.
             </p>
+            <button type="button" onclick="locateUserOnMap()" id="locate-me-btn" class="mt-3 w-full flex items-center justify-center gap-2 px-4 py-3 bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/30 dark:hover:bg-amber-950/50 border border-amber-200 dark:border-amber-900 text-amber-800 dark:text-amber-300 rounded-xl text-xs font-bold uppercase tracking-wider transition-all disabled:opacity-60">
+              <span id="locate-me-icon">📍</span>
+              <span id="locate-me-text">Use My Current Location</span>
+            </button>
           </div>
 
           <div>
@@ -312,7 +316,7 @@
               <span id="coord-dest-display" class="font-bold text-amber-950 dark:text-amber-100">Click map to set</span>
             </div>
             <div class="flex justify-between border-t border-dashed border-amber-200 dark:border-amber-900 pt-2">
-              <span class="text-amber-850 font-bold">Calculated Distance:</span>
+              <span class="text-amber-900 font-bold">Calculated Distance:</span>
               <span id="calculated-distance-text" class="font-black text-amber-900 dark:text-amber-200">0.0 km</span>
             </div>
           </div>
@@ -419,15 +423,18 @@
   </div>
 
   <!-- Leaflet.js Interactive Maps Library -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha255-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
   <!-- ================= DATA ENGINE & CONTROLLERS ================= -->
   <script>
-    let applicationCartMatrix = [];
+    // Initialize state from LocalStorage
+    let applicationCartMatrix = JSON.parse(localStorage.getItem('rtg-cart')) || [];
     
     // Constant Variables
-    const DESTINATION_MERCHANT_UPI = "fahimulgoni999@okaxis";
-    const DESTINATION_MERCHANT_WHATSAPP_PHONE = "8638628951";
+    const DESTINATION_MERCHANT_UPI = "fahimulgoni999@upi";
+    // NOTE: wa.me requires the FULL international number, digits only, no + or leading 0.
+    // India country code is 91, so a local number like 8638628951 becomes 918638628951.
+    const DESTINATION_MERCHANT_WHATSAPP_PHONE = "918638628951";
     const BAKERY_NAME = "RTG Bakery";
 
     // Bakery Coordinates in Ananda Nagar, Guwahati
@@ -562,17 +569,14 @@
 
     // Leaflet.js Map Initialization
     function initializeDeliveryMap() {
-      if (leafMapObj !== null) return; // Prevent double init
+      if (leafMapObj !== null) return; 
       
-      // Focus map initially around Guwahati area
       leafMapObj = L.map('delivery-map').setView([BAKERY_LAT, BAKERY_LON], 14);
 
-      // Add OpenStreetMap tiles
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
       }).addTo(leafMapObj);
 
-      // Bakery Icon
       const bakeryIcon = L.divIcon({
         html: '<div style="font-size: 28px;">🥖</div>',
         iconSize: [40, 40],
@@ -580,30 +584,81 @@
       });
       L.marker([BAKERY_LAT, BAKERY_LON], {icon: bakeryIcon}).addTo(leafMapObj).bindPopup("<b>RTG Bakery</b><br>Ananda Nagar, Guwahati").openPopup();
 
-      // Draggable Destination Marker
       leafMarkerObj = L.marker([BAKERY_LAT, BAKERY_LON], {
         draggable: true
       }).addTo(leafMapObj);
 
       leafMarkerObj.bindPopup("Drag me to your delivery spot!").openPopup();
 
-      // On Drag Event
       leafMarkerObj.on('dragend', function (event) {
         const marker = event.target;
         const position = marker.getLatLng();
         updateGeodesicDistance(position.lat, position.lng);
       });
 
-      // On Map Click
       leafMapObj.on('click', function(e) {
         leafMarkerObj.setLatLng(e.latlng);
         updateGeodesicDistance(e.latlng.lat, e.latlng.lng);
       });
     }
 
-    // Haversine formula calculation for exact geodesic distance in km
+    // Auto-locate the customer using the browser's Geolocation API,
+    // then re-center the map and drop the delivery pin on their position.
+    function locateUserOnMap() {
+      const btn = document.getElementById('locate-me-btn');
+      const icon = document.getElementById('locate-me-icon');
+      const text = document.getElementById('locate-me-text');
+
+      if (!navigator.geolocation) {
+        alert("Your browser doesn't support location access. Please pin your delivery spot manually on the map.");
+        return;
+      }
+      if (!leafMapObj || !leafMarkerObj) {
+        alert("The map is still loading, please try again in a second.");
+        return;
+      }
+
+      btn.disabled = true;
+      icon.innerText = "⏳";
+      text.innerText = "Locating...";
+
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+
+          leafMapObj.setView([lat, lon], 16);
+          leafMarkerObj.setLatLng([lat, lon]);
+          leafMarkerObj.bindPopup("📍 Your detected location").openPopup();
+          updateGeodesicDistance(lat, lon);
+
+          btn.disabled = false;
+          icon.innerText = "✅";
+          text.innerText = "Location Found!";
+          setTimeout(() => {
+            icon.innerText = "📍";
+            text.innerText = "Use My Current Location";
+          }, 2000);
+        },
+        function (error) {
+          btn.disabled = false;
+          icon.innerText = "📍";
+          text.innerText = "Use My Current Location";
+
+          let msg = "Couldn't detect your location. Please pin your delivery spot manually on the map.";
+          if (error.code === error.PERMISSION_DENIED) {
+            msg = "Location access was denied. Please allow location access in your browser, or pin your spot manually on the map.";
+          } else if (error.code === error.TIMEOUT) {
+            msg = "Location request timed out. Please try again, or pin your spot manually on the map.";
+          }
+          alert(msg);
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+      );
+    }
+
     function calculateHaversineDistance(lat1, lon1, lat2, lon2) {
-      const R = 6371; // Earth radius in km
+      const R = 6371; 
       const dLat = (lat2 - lat1) * Math.PI / 180;
       const dLon = (lon2 - lon1) * Math.PI / 180;
       const a = 
@@ -611,7 +666,7 @@
         Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
         Math.sin(dLon/2) * Math.sin(dLon/2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-      return (R * c).toFixed(2); // return distance to 2 decimal places
+      return (R * c).toFixed(2);
     }
 
     function updateGeodesicDistance(lat, lon) {
@@ -622,10 +677,6 @@
       document.getElementById('coord-dest-display').innerText = `${lat.toFixed(4)}, ${lon.toFixed(4)}`;
       document.getElementById('calculated-distance-text').innerText = `${calculatedDeliveryDistance} km`;
       
-      // Rate math card calculation:
-      // dist <= 1 km -> 40 rs
-      // dist <= 2 km -> 80 rs
-      // dist > 2 km -> 80 rs + 30 rs per additional km
       if (calculatedDeliveryDistance <= 1.0) {
         calculatedDeliveryPrice = 40;
       } else if (calculatedDeliveryDistance <= 2.0) {
@@ -636,7 +687,6 @@
       }
     }
 
-    // View Navigation Manager
     function showView(viewIdentifier) {
       document.getElementById('menu-view').classList.add('hidden');
       document.getElementById('checkout-view').classList.add('hidden');
@@ -647,7 +697,6 @@
         document.getElementById('menu-view').classList.remove('hidden');
       } else if (viewIdentifier === 'checkout-view') {
         document.getElementById('checkout-view').classList.remove('hidden');
-        // Instantly trigger interactive map init when checkout zone view launches
         setTimeout(initializeDeliveryMap, 300);
       } else if (viewIdentifier === 'quality-view') {
         document.getElementById('quality-view').classList.remove('hidden');
@@ -655,7 +704,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Steps Router inside checkout (Flipkart-style)
     function goToCheckoutStep(stepIndex) {
       const step1 = document.getElementById('checkout-step-1');
       const step2 = document.getElementById('checkout-step-2');
@@ -692,11 +740,8 @@
         return;
       }
       
-      // Update Summary UI texts
       document.getElementById('summary-distance-text').innerText = `${calculatedDeliveryDistance} km`;
       renderGlobalCartState();
-      
-      // Route onwards to step 2
       goToCheckoutStep(2);
     }
 
@@ -712,6 +757,7 @@
           itemQuantity: 1
         });
       }
+      saveCart();
       renderGlobalCartState();
     }
 
@@ -722,7 +768,13 @@
       if (discoveredMatch.itemQuantity <= 0) {
         applicationCartMatrix = applicationCartMatrix.filter(record => record.id !== productId);
       }
+      saveCart();
       renderGlobalCartState();
+    }
+
+    // Save/Load helpers
+    function saveCart() {
+      localStorage.setItem('rtg-cart', JSON.stringify(applicationCartMatrix));
     }
 
     function renderGlobalCartState() {
@@ -807,7 +859,16 @@
       const finalWhatsAppRouterLink = `https://wa.me/${DESTINATION_MERCHANT_WHATSAPP_PHONE}?text=${urlSafePayloadString}`;
 
       window.open(finalWhatsAppRouterLink, '_blank');
+
+      // Clear the cart now that the order has been handed off, so a
+      // returning customer doesn't see a stale box on their next visit.
+      applicationCartMatrix = [];
+      saveCart();
+      renderGlobalCartState();
     }
+
+    // Run initial render on load
+    document.addEventListener('DOMContentLoaded', renderGlobalCartState);
   </script>
 </body>
 </html>
