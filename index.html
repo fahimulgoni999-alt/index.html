@@ -618,42 +618,60 @@
         return;
       }
 
+      function onLocateSuccess(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        leafMapObj.setView([lat, lon], 16);
+        leafMarkerObj.setLatLng([lat, lon]);
+        leafMarkerObj.bindPopup("📍 Your detected location").openPopup();
+        updateGeodesicDistance(lat, lon);
+
+        btn.disabled = false;
+        icon.innerText = "✅";
+        text.innerText = "Location Found!";
+        setTimeout(() => {
+          icon.innerText = "📍";
+          text.innerText = "Use My Current Location";
+        }, 2000);
+      }
+
+      function onLocateFailure(error) {
+        btn.disabled = false;
+        icon.innerText = "📍";
+        text.innerText = "Use My Current Location";
+
+        let msg = "Couldn't detect your location. Please pin your delivery spot manually on the map.";
+        if (error.code === error.PERMISSION_DENIED) {
+          msg = "Location access was denied. Please allow location access in your browser, or pin your spot manually on the map.";
+        } else if (error.code === error.TIMEOUT) {
+          msg = "Couldn't get a location fix. Please make sure location/GPS is turned on, then try again, or pin your spot manually on the map.";
+        }
+        alert(msg);
+      }
+
       btn.disabled = true;
       icon.innerText = "⏳";
       text.innerText = "Locating...";
 
+      // First attempt: high-accuracy GPS fix. This can time out indoors or
+      // with a weak signal, so on timeout we retry once with a faster,
+      // lower-accuracy network/Wi-Fi based lookup instead of just failing.
       navigator.geolocation.getCurrentPosition(
-        function (position) {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-
-          leafMapObj.setView([lat, lon], 16);
-          leafMarkerObj.setLatLng([lat, lon]);
-          leafMarkerObj.bindPopup("📍 Your detected location").openPopup();
-          updateGeodesicDistance(lat, lon);
-
-          btn.disabled = false;
-          icon.innerText = "✅";
-          text.innerText = "Location Found!";
-          setTimeout(() => {
-            icon.innerText = "📍";
-            text.innerText = "Use My Current Location";
-          }, 2000);
-        },
-        function (error) {
-          btn.disabled = false;
-          icon.innerText = "📍";
-          text.innerText = "Use My Current Location";
-
-          let msg = "Couldn't detect your location. Please pin your delivery spot manually on the map.";
-          if (error.code === error.PERMISSION_DENIED) {
-            msg = "Location access was denied. Please allow location access in your browser, or pin your spot manually on the map.";
-          } else if (error.code === error.TIMEOUT) {
-            msg = "Location request timed out. Please try again, or pin your spot manually on the map.";
+        onLocateSuccess,
+        function (firstError) {
+          if (firstError.code === firstError.TIMEOUT) {
+            text.innerText = "Still locating...";
+            navigator.geolocation.getCurrentPosition(
+              onLocateSuccess,
+              onLocateFailure,
+              { enableHighAccuracy: false, timeout: 15000, maximumAge: 60000 }
+            );
+          } else {
+            onLocateFailure(firstError);
           }
-          alert(msg);
         },
-        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 }
       );
     }
 
