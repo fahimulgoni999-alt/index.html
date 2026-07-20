@@ -62,7 +62,7 @@
   <!-- ================= HEADER / NAV ================= -->
   <header class="sticky top-0 z-40 bg-[#FAF6F0]/90 dark:bg-[#18120C]/90 backdrop-blur-xl border-b border-amber-100 dark:border-amber-950 px-6 py-4 flex justify-between items-center transition-all">
     
-    <!-- LOCKED BRANDING BLOCK (Prevents Layout Shifting) -->
+    <!-- LOCKED BRANDING BLOCK -->
     <div class="flex items-center gap-3 cursor-pointer select-none shrink-0" onclick="showView('menu-view')">
       <div class="w-10 h-10 rounded-full border border-amber-700/20 bg-amber-950/5 flex items-center justify-center overflow-hidden shrink-0">
         <img 
@@ -147,21 +147,21 @@
     <!-- ================= DEFAULT BROWSE CONTENT ================= -->
     <div id="default-browse-content">
 
-     <!-- ================= PROMOTIONAL SLIDER BANNER ================= -->
+      <!-- ================= PROMOTIONAL SLIDER BANNER ================= -->
       <section class="relative w-full overflow-hidden rounded-2xl mb-12 shadow-sm border border-amber-100 dark:border-amber-900/50 max-w-3xl mx-auto">
         <div id="carousel-slides" class="flex transition-transform duration-700 ease-in-out" style="transform: translateX(0%);">
           <!-- Slide 1: Breads -->
           <div class="min-w-full relative aspect-[21/9] bg-amber-950 cursor-pointer" onclick="openSpecialCategoryView('breads')">
-            <img src="https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=1200" class="w-full h-full object-cover opacity-60" alt="Fresh Daily Bread">
+            <img src="banner-breads.jpg" class="w-full h-full object-cover opacity-60" alt="Fresh Daily Bread" onerror="this.src='https://images.pexels.com/photos/1775043/pexels-photo-1775043.jpeg?auto=compress&cs=tinysrgb&w=1200'">
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white">
               <span class="text-[9px] sm:text-xs font-black uppercase tracking-wider bg-amber-700 self-start px-2.5 py-1 rounded-md mb-2">Daily Fresh Essentials</span>
               <h3 class="text-base sm:text-2xl font-black heading-serif">Soft & Fluffy Pillowy Loaves</h3>
               <p class="text-[10px] sm:text-xs text-amber-200/90 mt-1 font-medium">Baked completely fresh every single morning. Perfect for daily sandwiches.</p>
             </div>
           </div>
-          <!-- Slide 2: Biscuits & Cookies (FIXED IMAGE URL) -->
+          <!-- Slide 2: Biscuits & Cookies -->
           <div class="min-w-full relative aspect-[21/9] bg-amber-950 cursor-pointer" onclick="openSpecialCategoryView('biscuits')">
-            <img src="https://images.pexels.com/photos/230325/pexels-photo-230325.jpeg?auto=compress&cs=tinysrgb&w=1200" class="w-full h-full object-cover opacity-60" alt="Gourmet Cookies">
+            <img src="banner-biscuits.jpg" class="w-full h-full object-cover opacity-60" alt="Gourmet Cookies" onerror="this.src='https://images.pexels.com/photos/230325/pexels-photo-230325.jpeg?auto=compress&cs=tinysrgb&w=1200'">
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white">
               <span class="text-[9px] sm:text-xs font-black uppercase tracking-wider bg-amber-700 self-start px-2.5 py-1 rounded-md mb-2">Tea Time Crunches</span>
               <h3 class="text-base sm:text-2xl font-black heading-serif">Gourmet Cookies & Savory Biscuits</h3>
@@ -170,7 +170,7 @@
           </div>
           <!-- Slide 3: Snacks & Rolls -->
           <div class="min-w-full relative aspect-[21/9] bg-amber-950 cursor-pointer" onclick="openSpecialCategoryView('snacks')">
-            <img src="https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1200" class="w-full h-full object-cover opacity-60" alt="Savory Bakery Snacks">
+            <img src="banner-snacks.jpg" class="w-full h-full object-cover opacity-60" alt="Savory Bakery Snacks" onerror="this.src='https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&w=1200'">
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white">
               <span class="text-[9px] sm:text-xs font-black uppercase tracking-wider bg-amber-700 self-start px-2.5 py-1 rounded-md mb-2">Warm Delights</span>
               <h3 class="text-base sm:text-2xl font-black heading-serif">Flaky Patties, Rolls & Personal Pizzas</h3>
@@ -179,7 +179,7 @@
           </div>
           <!-- Slide 4: Celebration Cakes -->
           <div class="min-w-full relative aspect-[21/9] bg-amber-950 cursor-pointer" onclick="openSpecialCategoryView('cakes')">
-            <img src="https://images.pexels.com/photos/1070850/pexels-photo-1070850.jpeg?auto=compress&cs=tinysrgb&w=1200" class="w-full h-full object-cover opacity-60" alt="Custom Cakes">
+            <img src="banner-cakes.jpg" class="w-full h-full object-cover opacity-60" alt="Custom Cakes" onerror="this.src='https://images.pexels.com/photos/1070850/pexels-photo-1070850.jpeg?auto=compress&cs=tinysrgb&w=1200'">
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white">
               <span class="text-[9px] sm:text-xs font-black uppercase tracking-wider bg-amber-700 self-start px-2.5 py-1 rounded-md mb-2">Sweet Celebrations</span>
               <h3 class="text-base sm:text-2xl font-black heading-serif">Decadent Vanilla, Cocoa & Red Velvet Cakes</h3>
@@ -239,7 +239,7 @@
 
     <div class="space-y-12">
       <div class="relative rounded-2xl overflow-hidden h-56 shadow-md border border-amber-100 dark:border-amber-900">
-        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Baker handling dough">
+        <img src="quality-baker.jpg" class="w-full h-full object-cover" alt="Baker handling dough" onerror="this.src='https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=1200&q=80'">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
           <p class="text-white text-sm font-semibold italic">"Baking is a conversation between the grains, the yeasts, and the hand of the baker."</p>
         </div>
@@ -334,7 +334,7 @@
             </div>
             <div>
               <label class="block text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300 mb-2">WhatsApp Number</label>
-              <input id="cust-phone" type="tel" required class="w-full bg-[#FAF6F0]/30 dark:bg-transparent border border-amber-100 dark:border-amber-900 rounded-xl px-4 py-3.5 focus:outline-none focus:border-amber-500 text-sm text-amber-950 dark:text-amber-50 font-medium" placeholder="e.g. 8638628951">
+              <input id="cust-phone" type="tel" required class="w-full bg-[#FAF6F0]/30 dark:bg-transparent border border-amber-100 dark:border-amber-900 rounded-xl px-4 py-3.5 focus:outline-none focus:border-amber-500 text-sm text-amber-950 dark:text-amber-50 font-medium" placeholder="e.g. 1234567890">
             </div>
           </div>
 
@@ -515,8 +515,8 @@
     let applicationCartMatrix = JSON.parse(localStorage.getItem('rtg-cart')) || [];
     
     // Constant Variables
-    const DESTINATION_MERCHANT_UPI = "fahimulgoni999@okaxis";
-    const DESTINATION_MERCHANT_WHATSAPP_PHONE = "918638628951";
+    const DESTINATION_MERCHANT_UPI = "aahana0043@okicici";
+    const DESTINATION_MERCHANT_WHATSAPP_PHONE = "917002982243";
     const BAKERY_NAME = "RTG Bakery";
 
     // Bakery Coordinates in Ananda Nagar, Guwahati
@@ -534,39 +534,39 @@
 
     const bakeryInventory = {
       breads: [
-        { id: 1, name: "Fluffy Bread (175g)", desc: "Super soft, light, and perfectly baked fresh daily.", price: 20, tag: "Fresh" },
-        { id: 2, name: "Fluffy Bread (80g)", desc: "Perfect smaller loaf, baked fresh daily.", price: 10, tag: "Fresh" },
-        { id: 3, name: "Slice Cake (12 Pieces)", desc: "Delicious sweet cake slices perfect for tea time.", price: 60, tag: "Classic Pack" }
+        { id: 1, name: "Fluffy Bread (175g)", desc: "Super soft, light, and perfectly baked fresh daily.", price: 20, tag: "Fresh", img: "fluffy-bread-175.jpg", cat: "breads" },
+        { id: 2, name: "Fluffy Bread (80g)", desc: "Perfect smaller loaf, baked fresh daily.", price: 10, tag: "Fresh", img: "fluffy-bread-80.jpg", cat: "breads" },
+        { id: 3, name: "Slice Cake (12 Pieces)", desc: "Delicious sweet cake slices perfect for tea time.", price: 60, tag: "Classic Pack", img: "slice-cake-12.jpg", cat: "breads" }
       ],
       biscuits: [
-        { id: 4, name: "Sweet Biscuit (400g)", desc: "Perfectly baked sugary crunch snacks for everyone.", price: 120, tag: "400g Pack" },
-        { id: 5, name: "Salted Biscuit (400g)", desc: "Crispy, savory delights with balanced salt crust layers.", price: 110, tag: "400g Pack" },
-        { id: 6, name: "Chocochip Cookies (Per kg)", desc: "Gourmet crunchy cookies loaded with rich chocolate chips.", price: 400, tag: "Per KG" },
-        { id: 7, name: "Cornflex Cookies (Per kg)", desc: "Crispy, golden cookies with a sweet cornflake crunch texture.", price: 350, tag: "Per KG" },
-        { id: 8, name: "Black Cumin Cookies (Per kg)", desc: "Aromatic savory cookies perfectly baked with black cumin seeds.", price: 350, tag: "Per KG" }
+        { id: 4, name: "Sweet Biscuit (400g)", desc: "Perfectly baked sugary crunch snacks for everyone.", price: 120, tag: "400g Pack", img: "sweet-biscuit-400.jpg", cat: "biscuits" },
+        { id: 5, name: "Salted Biscuit (400g)", desc: "Crispy, savory delights with balanced salt crust layers.", price: 110, tag: "400g Pack", img: "salted-biscuit-400.jpg", cat: "biscuits" },
+        { id: 6, name: "Chocochip Cookies (Per kg)", desc: "Gourmet crunchy cookies loaded with rich chocolate chips.", price: 400, tag: "Per KG", img: "chocochip-cookies.jpg", cat: "biscuits" },
+        { id: 7, name: "Cornflex Cookies (Per kg)", desc: "Crispy, golden cookies with a sweet cornflake crunch texture.", price: 350, tag: "Per KG", img: "cornflex-cookies.jpg", cat: "biscuits" },
+        { id: 8, name: "Black Cumin Cookies (Per kg)", desc: "Aromatic savory cookies perfectly baked with black cumin seeds.", price: 350, tag: "Per KG", img: "black-cumin-cookies.jpg", cat: "biscuits" }
       ],
       snacks: [
-        { id: 9, name: "Veg Patties", desc: "Crispy puff pastry stuffed with spiced mixed vegetables.", price: 20, tag: "Warm Snack" },
-        { id: 10, name: "Egg Patties", desc: "Golden flaky shell layer featuring seasoned egg filling.", price: 30, tag: "Warm Snack" },
-        { id: 11, name: "Chicken Patties", desc: "Savory seasoned minced chicken inside a baked golden pastry.", price: 40, tag: "Warm Snack" },
-        { id: 12, name: "Samosa", desc: "Traditional crisp deep-fried crust packed with spiced potatoes.", price: 20, tag: "Freshly Fried" },
-        { id: 13, name: "Cream Roll", desc: "Sweet flaky baked cylinder tubes filled with luscious sweet cream.", price: 20, tag: "Sweet Treat" },
-        { id: 14, name: "Cream Bun", desc: "Soft pillow bun packed to the brim with fluffy sweet frosting.", price: 15, tag: "Sweet Treat" },
-        { id: 15, name: "Paneer Patties", desc: "Puff pastry turnover stuffed with rich spiced cottage cheese.", price: 30, tag: "Warm Snack" },
-        { id: 16, name: "Chicken Roll", desc: "Delicious tender shredded chicken wrapped in a warm soft paratha wrapper.", price: 180, tag: "Top Seller" },
-        { id: 17, name: "Paneer Roll", desc: "Soft, seasoned cottage cheese blocks rolled with crisp fresh veggies.", price: 160, tag: "Fresh Roll" },
-        { id: 18, name: "Veg Roll", desc: "Wholesome, perfectly spiced assorted sautéed garden vegetables.", price: 120, tag: "Healthy Pick" },
-        { id: 19, name: "Veg Burger", desc: "Crispy vegetable patty layered with fresh lettuce and bakery sauce.", price: 60, tag: "Classic Burger" },
-        { id: 20, name: "Chicken Burger", desc: "Juicy, well-seasoned chicken patty cooked to golden perfection.", price: 110, tag: "Hearty Burger" },
-        { id: 21, name: "Paneer Pizza", desc: "Freshly baked personal crust topped with robust marinara and paneer cubes.", price: 120, tag: "Cheesy" },
-        { id: 22, name: "Chicken Pizza", desc: "Premium shredded oven-baked chicken distributed over gooey mozzarella layers.", price: 160, tag: "Premium Crust" }
+        { id: 9, name: "Veg Patties", desc: "Crispy puff pastry stuffed with spiced mixed vegetables.", price: 20, tag: "Warm Snack", img: "veg-patties.jpg", cat: "snacks" },
+        { id: 10, name: "Egg Patties", desc: "Golden flaky shell layer featuring seasoned egg filling.", price: 30, tag: "Warm Snack", img: "egg-patties.jpg", cat: "snacks" },
+        { id: 11, name: "Chicken Patties", desc: "Savory seasoned minced chicken inside a baked golden pastry.", price: 40, tag: "Warm Snack", img: "chicken-patties.jpg", cat: "snacks" },
+        { id: 12, name: "Samosa", desc: "Traditional crisp deep-fried crust packed with spiced potatoes.", price: 20, tag: "Freshly Fried", img: "samosa.jpg", cat: "snacks" },
+        { id: 13, name: "Cream Roll", desc: "Sweet flaky baked cylinder tubes filled with luscious sweet cream.", price: 20, tag: "Sweet Treat", img: "cream-roll.jpg", cat: "snacks" },
+        { id: 14, name: "Cream Bun", desc: "Soft pillow bun packed to the brim with fluffy sweet frosting.", price: 15, tag: "Sweet Treat", img: "cream-bun.jpg", cat: "snacks" },
+        { id: 15, name: "Paneer Patties", desc: "Puff pastry turnover stuffed with rich spiced cottage cheese.", price: 30, tag: "Warm Snack", img: "paneer-patties.jpg", cat: "snacks" },
+        { id: 16, name: "Chicken Roll", desc: "Delicious tender shredded chicken wrapped in a warm soft paratha wrapper.", price: 180, tag: "Top Seller", img: "chicken-roll.jpg", cat: "snacks" },
+        { id: 17, name: "Paneer Roll", desc: "Soft, seasoned cottage cheese blocks rolled with crisp fresh veggies.", price: 160, tag: "Fresh Roll", img: "paneer-roll.jpg", cat: "snacks" },
+        { id: 18, name: "Veg Roll", desc: "Wholesome, perfectly spiced assorted sautéed garden vegetables.", price: 120, tag: "Healthy Pick", img: "veg-roll.jpg", cat: "snacks" },
+        { id: 19, name: "Veg Burger", desc: "Crispy vegetable patty layered with fresh lettuce and bakery sauce.", price: 60, tag: "Classic Burger", img: "veg-burger.jpg", cat: "snacks" },
+        { id: 20, name: "Chicken Burger", desc: "Juicy, well-seasoned chicken patty cooked to golden perfection.", price: 110, tag: "Hearty Burger", img: "chicken-burger.jpg", cat: "snacks" },
+        { id: 21, name: "Paneer Pizza", desc: "Freshly baked personal crust topped with robust marinara and paneer cubes.", price: 120, tag: "Cheesy", img: "paneer-pizza.jpg", cat: "snacks" },
+        { id: 22, name: "Chicken Pizza", desc: "Premium shredded oven-baked chicken distributed over gooey mozzarella layers.", price: 160, tag: "Premium Crust", img: "chicken-pizza.jpg", cat: "snacks" }
       ],
       cakes: [
-        { id: 23, name: "Vanilla Cake (500g)", desc: "Classic soft sponge cake topped with elegant whipped vanilla frosting.", price: 550, tag: "Fresh Bake" },
-        { id: 24, name: "Chocolate Cake (500g)", desc: "Decadent dark cocoa sponge filled and glazed with gourmet chocolate cream.", price: 600, tag: "Rich Cocoa" },
-        { id: 25, name: "Red Velvet Cake (Per kg)", desc: "Luxurious deep red velvet layers balanced with smooth cream cheese frosting.", price: 750, tag: "Premium Choice" },
-        { id: 26, name: "Butterscotch Cake (Per kg)", desc: "Crunchy butterscotch praline chunks nested in caramelized sweet layers.", price: 600, tag: "Per KG" },
-        { id: 27, name: "Swiss Roll (400g)", desc: "Soft, rolled sponge cake spiraled tightly with rich cream layers.", price: 110, tag: "400g Pack" }
+        { id: 23, name: "Vanilla Cake (500g)", desc: "Classic soft sponge cake topped with elegant whipped vanilla frosting.", price: 550, tag: "Fresh Bake", img: "vanilla-cake-500.jpg", cat: "cakes" },
+        { id: 24, name: "Chocolate Cake (500g)", desc: "Decadent dark cocoa sponge filled and glazed with gourmet chocolate cream.", price: 600, tag: "Rich Cocoa", img: "chocolate-cake-500.jpg", cat: "cakes" },
+        { id: 25, name: "Red Velvet Cake (Per kg)", desc: "Luxurious deep red velvet layers balanced with smooth cream cheese frosting.", price: 750, tag: "Premium Choice", img: "red-velvet-cake.jpg", cat: "cakes" },
+        { id: 26, name: "Butterscotch Cake (Per kg)", desc: "Crunchy butterscotch praline chunks nested in caramelized sweet layers.", price: 600, tag: "Per KG", img: "butterscotch-cake.jpg", cat: "cakes" },
+        { id: 27, name: "Swiss Roll (400g)", desc: "Soft, rolled sponge cake spiraled tightly with rich cream layers.", price: 110, tag: "400g Pack", img: "swiss-roll-400.jpg", cat: "cakes" }
       ]
     };
 
@@ -583,6 +583,15 @@
       const tBox = document.getElementById('testimonial-box');
       if (tBox) tBox.innerText = reviews[reviewIdx];
     }, 4000);
+
+    // Helper to find image and category for cart elements
+    function findProductMetadata(productId) {
+      for (const cat in bakeryInventory) {
+        const item = bakeryInventory[cat].find(p => p.id === productId);
+        if (item) return { img: item.img, cat: cat };
+      }
+      return { img: '', cat: 'breads' };
+    }
 
     // ================= SEARCH CONTROLLER =================
     function handleSearchInput() {
@@ -634,18 +643,20 @@
       }
 
       resultsList.innerHTML = matchingItems.map(item => `
-        <div class="bg-white dark:bg-[#1c150f] border border-amber-100 dark:border-amber-900/50 p-5 rounded-2xl flex flex-col justify-between gap-4 shadow-sm">
-          <div class="flex justify-between items-start">
-            <div class="max-w-[70%]">
-              <span class="inline-block text-[9px] font-black uppercase bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 px-2.5 py-0.5 rounded mb-2">${categoryEmojis[item.categoryKey]} ${item.categoryKey}</span>
-              <h4 class="text-base font-extrabold text-amber-950 dark:text-amber-100">${item.name}</h4>
-              <p class="text-xs text-amber-900/60 dark:text-amber-400/60 mt-1 leading-relaxed">${item.desc}</p>
+        <div class="bg-white dark:bg-[#1c150f] border border-amber-100 dark:border-amber-900/50 p-4 rounded-2xl flex flex-col justify-between gap-4 shadow-sm">
+          <div class="flex gap-4 items-center">
+            <div class="w-20 h-20 rounded-xl bg-amber-100/50 dark:bg-amber-950/40 overflow-hidden shrink-0 border border-amber-100 dark:border-amber-900 flex items-center justify-center">
+              <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <span class="hidden text-2xl select-none">${categoryEmojis[item.categoryKey]}</span>
             </div>
-            <div class="text-right">
-              <span class="block text-lg font-black text-amber-950 dark:text-amber-100">₹${item.price}</span>
+            <div class="flex-grow min-w-0">
+              <span class="inline-block text-[9px] font-black uppercase bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 px-2.5 py-0.5 rounded mb-1">${categoryEmojis[item.categoryKey]} ${item.categoryKey}</span>
+              <h4 class="text-sm font-extrabold text-amber-950 dark:text-amber-100 truncate">${item.name}</h4>
+              <p class="text-xs text-amber-900/60 dark:text-amber-400/60 leading-tight line-clamp-2 mt-0.5">${item.desc}</p>
+              <span class="block text-sm font-black text-amber-950 dark:text-amber-100 mt-1">₹${item.price}</span>
             </div>
           </div>
-          <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})" class="w-full bg-amber-50 hover:bg-amber-700 dark:bg-amber-950/20 hover:text-white border border-amber-700/20 text-amber-800 dark:text-amber-300 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
+          <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})" class="w-full bg-amber-50 hover:bg-amber-700 dark:bg-amber-950/20 hover:text-white border border-amber-700/20 text-amber-800 dark:text-amber-300 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
             + Add to Custom Box
           </button>
         </div>
@@ -667,7 +678,7 @@
 
     // ================= CAROUSEL CONTROLLER =================
     let currentSlideIndex = 0;
-    const totalSlides = 4; // Expanded to match 4 category variations
+    const totalSlides = 4;
     setInterval(() => {
       currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
       const slides = document.getElementById('carousel-slides');
@@ -696,7 +707,6 @@
     }
 
     function openSpecialCategoryView(categoryKey) {
-      // Clear search to prevent UI locking bugs
       const searchSection = document.getElementById('search-results-section');
       if(searchSection) searchSection.classList.add('hidden');
       document.getElementById('default-browse-content').classList.remove('hidden');
@@ -728,18 +738,20 @@
       const items = bakeryInventory[categoryKey];
 
       listContainer.innerHTML = items.map(item => `
-        <div class="bg-white dark:bg-[#1c150f] border border-amber-100 dark:border-amber-900/50 p-5 rounded-2xl flex flex-col justify-between gap-4 shadow-sm">
-          <div class="flex justify-between items-start">
-            <div class="max-w-[70%]">
-              <span class="inline-block text-[9px] font-black uppercase bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 px-2.5 py-0.5 rounded mb-2">${item.tag}</span>
-              <h4 class="text-base font-extrabold text-amber-950 dark:text-amber-100">${item.name}</h4>
-              <p class="text-xs text-amber-900/60 dark:text-amber-400/60 mt-1 leading-relaxed">${item.desc}</p>
+        <div class="bg-white dark:bg-[#1c150f] border border-amber-100 dark:border-amber-900/50 p-4 rounded-2xl flex flex-col justify-between gap-4 shadow-sm">
+          <div class="flex gap-4 items-center">
+            <div class="w-20 h-20 rounded-xl bg-amber-100/50 dark:bg-amber-950/40 overflow-hidden shrink-0 border border-amber-100 dark:border-amber-900 flex items-center justify-center">
+              <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <span class="hidden text-2xl select-none">${categoryEmojis[categoryKey]}</span>
             </div>
-            <div class="text-right">
-              <span class="block text-lg font-black text-amber-950 dark:text-amber-100">₹${item.price}</span>
+            <div class="flex-grow min-w-0">
+              <span class="inline-block text-[9px] font-black uppercase bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 px-2.5 py-0.5 rounded mb-1">${item.tag}</span>
+              <h4 class="text-sm font-extrabold text-amber-950 dark:text-amber-100 truncate">${item.name}</h4>
+              <p class="text-xs text-amber-900/60 dark:text-amber-400/60 leading-tight line-clamp-2 mt-0.5">${item.desc}</p>
+              <span class="block text-sm font-black text-amber-950 dark:text-amber-100 mt-1">₹${item.price}</span>
             </div>
           </div>
-          <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})" class="w-full bg-amber-50 hover:bg-amber-700 dark:bg-amber-950/20 hover:text-white border border-amber-700/20 text-amber-800 dark:text-amber-300 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
+          <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})" class="w-full bg-amber-50 hover:bg-amber-700 dark:bg-amber-950/20 hover:text-white border border-amber-700/20 text-amber-800 dark:text-amber-300 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
             + Add to Custom Box
           </button>
         </div>
@@ -903,47 +915,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function goToCheckoutStep(stepIndex) {
-      const step1 = document.getElementById('checkout-step-1');
-      const step2 = document.getElementById('checkout-step-2');
-      const progressLine = document.getElementById('line-progress');
-      const node2 = document.getElementById('step-node-2');
-      const badge2 = document.getElementById('step-badge-2');
-
-      if (stepIndex === 1) {
-        step1.classList.remove('hidden');
-        step2.classList.add('hidden');
-        progressLine.style.width = "0%";
-        badge2.className = "w-10 h-10 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-950 font-black flex items-center justify-center shadow-sm transition-all text-sm";
-      } else if (stepIndex === 2) {
-        step1.classList.add('hidden');
-        step2.classList.remove('hidden');
-        progressLine.style.width = "100%";
-        node2.classList.remove('pointer-events-none', 'opacity-50');
-        badge2.className = "w-10 h-10 rounded-full bg-amber-700 text-white font-black flex items-center justify-center shadow-md transition-all text-sm";
-      }
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function validateAndGoToSummary() {
-      const name = document.getElementById('cust-name').value.trim();
-      const phone = document.getElementById('cust-phone').value.trim();
-      const addr = document.getElementById('cust-address').value.trim();
-
-      if (applicationCartMatrix.length === 0) {
-        alert("Please add items to your bakery box first!");
-        return;
-      }
-      if (!name || !phone || !addr) {
-        alert("Please fulfill your name, WhatsApp phone number, and address fields first.");
-        return;
-      }
-      
-      document.getElementById('summary-distance-text').innerText = `${calculatedDeliveryDistance} km`;
-      renderGlobalCartState();
-      goToCheckoutStep(2);
-    }
-
     // Baseline direct adding function
     function addToCart(productId, productName, productUnitRate) {
       const discoveredMatch = applicationCartMatrix.find(record => record.id === productId);
@@ -998,25 +969,79 @@
       if (applicationCartMatrix.length === 0) {
         reviewContainer.innerHTML = `<p class="text-amber-900/40 text-sm py-4 text-center">Your box is empty.</p>`;
       } else {
-        reviewContainer.innerHTML = applicationCartMatrix.map(product => `
-          <div class="flex justify-between items-center text-sm border border-amber-100 dark:border-amber-900/40 p-3 rounded-xl bg-amber-50/10">
-            <div>
-              <p class="font-bold text-amber-950 dark:text-amber-100 tracking-wide">${product.itemName}</p>
-              <p class="text-amber-800/60 dark:text-amber-400 text-xs font-semibold mt-0.5">₹${product.itemPrice} each</p>
+        reviewContainer.innerHTML = applicationCartMatrix.map(product => {
+          // Dynamic image lookups for the summary box items
+          const meta = findProductMetadata(product.id);
+          return `
+            <div class="flex items-center gap-4 text-sm border border-amber-100 dark:border-amber-900/40 p-3 rounded-xl bg-amber-50/10">
+              <!-- Item Image Thumbnail on Checkout Summary -->
+              <div class="w-14 h-14 rounded-lg bg-amber-100/50 dark:bg-amber-950/40 overflow-hidden shrink-0 border border-amber-100/70 dark:border-amber-900/70 flex items-center justify-center">
+                <img src="${meta.img}" alt="${product.itemName}" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span class="hidden text-xl select-none">${categoryEmojis[meta.cat]}</span>
+              </div>
+              
+              <!-- Text details -->
+              <div class="flex-grow min-w-0">
+                <p class="font-bold text-amber-950 dark:text-amber-100 tracking-wide truncate">${product.itemName}</p>
+                <p class="text-amber-800/60 dark:text-amber-400 text-xs font-semibold mt-0.5">₹${product.itemPrice} each</p>
+              </div>
+              
+              <!-- Quantity Incrementor controls -->
+              <div class="flex items-center gap-2 shrink-0">
+                <button type="button" onclick="modifyCartDelta(${product.id}, -1)" class="w-7 h-7 bg-white dark:bg-amber-950 border border-amber-200 dark:border-amber-900 rounded-lg flex items-center justify-center font-bold text-amber-700">-</button>
+                <span class="font-bold text-amber-950 dark:text-amber-100 min-w-[14px] text-center text-xs">${product.itemQuantity}</span>
+                <button type="button" onclick="modifyCartDelta(${product.id}, 1)" class="w-7 h-7 bg-white dark:bg-amber-950 border border-amber-200 dark:border-amber-900 rounded-lg flex items-center justify-center font-bold text-amber-700">+</button>
+                <span class="ml-2 font-bold w-14 text-right text-amber-900 dark:text-amber-100 text-xs">₹${product.itemPrice * product.itemQuantity}</span>
+              </div>
             </div>
-            <div class="flex items-center gap-2.5">
-              <button type="button" onclick="modifyCartDelta(${product.id}, -1)" class="w-7 h-7 bg-white dark:bg-amber-950 border border-amber-200 dark:border-amber-900 rounded-lg flex items-center justify-center font-bold text-amber-700">-</button>
-              <span class="font-bold text-amber-950 dark:text-amber-100 min-w-[14px] text-center text-xs">${product.itemQuantity}</span>
-              <button type="button" onclick="modifyCartDelta(${product.id}, 1)" class="w-7 h-7 bg-white dark:bg-amber-950 border border-amber-200 dark:border-amber-900 rounded-lg flex items-center justify-center font-bold text-amber-700">+</button>
-              <span class="ml-2 font-bold w-14 text-right text-amber-900 dark:text-amber-100 text-xs">₹${product.itemPrice * product.itemQuantity}</span>
-            </div>
-          </div>
-        `).join('');
+          `;
+        }).join('');
       }
 
       document.getElementById('box-total').innerText = `₹${computedFinancialGrossSum}`;
       document.getElementById('delivery-charge').innerText = `₹${actualDeliveryFee}`;
       document.getElementById('grand-total').innerText = `₹${grandTotalSum}`;
+    }
+
+    function goToCheckoutStep(stepIndex) {
+      const step1 = document.getElementById('checkout-step-1');
+      const step2 = document.getElementById('checkout-step-2');
+      const progressLine = document.getElementById('line-progress');
+      const node2 = document.getElementById('step-node-2');
+      const badge2 = document.getElementById('step-badge-2');
+
+      if (stepIndex === 1) {
+        step1.classList.remove('hidden');
+        step2.classList.add('hidden');
+        progressLine.style.width = "0%";
+        badge2.className = "w-10 h-10 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-950 font-black flex items-center justify-center shadow-sm transition-all text-sm";
+      } else if (stepIndex === 2) {
+        step1.classList.add('hidden');
+        step2.classList.remove('hidden');
+        progressLine.style.width = "100%";
+        node2.classList.remove('pointer-events-none', 'opacity-50');
+        badge2.className = "w-10 h-10 rounded-full bg-amber-700 text-white font-black flex items-center justify-center shadow-md transition-all text-sm";
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function validateAndGoToSummary() {
+      const name = document.getElementById('cust-name').value.trim();
+      const phone = document.getElementById('cust-phone').value.trim();
+      const addr = document.getElementById('cust-address').value.trim();
+
+      if (applicationCartMatrix.length === 0) {
+        alert("Please add items to your bakery box first!");
+        return;
+      }
+      if (!name || !phone || !addr) {
+        alert("Please fulfill your name, WhatsApp phone number, and address fields first.");
+        return;
+      }
+      
+      document.getElementById('summary-distance-text').innerText = `${calculatedDeliveryDistance} km`;
+      renderGlobalCartState();
+      goToCheckoutStep(2);
     }
 
     function generateOrderId() {
