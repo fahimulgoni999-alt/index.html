@@ -69,7 +69,7 @@
           class="w-full h-full object-cover"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
         />
-        <span class="hidden text-xl">🥖</span>
+        <span class="hidden text-xl select-none">🥖</span>
       </div>
       <h1 class="text-xl font-black tracking-tight text-amber-900 dark:text-amber-100 heading-serif shrink-0">
         RTG BAKERY
@@ -83,6 +83,7 @@
     </nav>
 
     <div class="flex items-center gap-3">
+      <!-- Dark/Night Mode Toggle Button -->
       <button onclick="toggleDarkMode()" class="p-3 bg-white dark:bg-amber-950/40 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-xl transition text-lg" title="Toggle Night Mode">
         <span id="theme-icon">🌙</span>
       </button>
@@ -913,6 +914,7 @@
       goToCheckoutStep(2);
     }
 
+    // Baseline direct adding function
     function addToCart(productId, productName, productUnitRate) {
       const discoveredMatch = applicationCartMatrix.find(record => record.id === productId);
       if (discoveredMatch) {
