@@ -858,7 +858,6 @@
       }
     }
 
-    // Layout Router
     function showView(viewIdentifier) {
       document.getElementById('menu-view').classList.add('hidden');
       document.getElementById('checkout-view').classList.add('hidden');
@@ -917,6 +916,7 @@
       goToCheckoutStep(2);
     }
 
+    // Baseline direct adding function
     function addToCart(productId, productName, productUnitRate) {
       const discoveredMatch = applicationCartMatrix.find(record => record.id === productId);
       if (discoveredMatch) {
