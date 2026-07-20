@@ -49,6 +49,7 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    /* Map Container Style */
     #delivery-map {
       height: 320px;
       width: 100%;
@@ -61,19 +62,9 @@
 
   <!-- ================= HEADER / NAV ================= -->
   <header class="sticky top-0 z-40 bg-[#FAF6F0]/90 dark:bg-[#18120C]/90 backdrop-blur-xl border-b border-amber-100 dark:border-amber-950 px-6 py-4 flex justify-between items-center transition-all">
-    
-    <!-- LOCKED BRANDING BLOCK (Prevents Layout Shifting) -->
-    <div class="flex items-center gap-3 cursor-pointer select-none shrink-0" onclick="showView('menu-view')">
-      <div class="w-10 h-10 rounded-full border border-amber-700/20 bg-amber-950/5 flex items-center justify-center overflow-hidden shrink-0">
-        <img 
-          src="logo.png" 
-          alt="RTG Bakery Logo" 
-          class="w-full h-full object-cover"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-        />
-        <span class="hidden text-xl select-none">🥖</span>
-      </div>
-      <h1 class="text-xl font-black tracking-tight text-amber-900 dark:text-amber-100 heading-serif shrink-0">
+    <div class="flex items-center gap-3 cursor-pointer" onclick="showView('menu-view')">
+      <div class="w-8 h-8 rounded-lg bg-amber-700 flex items-center justify-center text-white font-black text-lg">🥖</div>
+      <h1 class="text-xl font-black tracking-tight text-amber-900 dark:text-amber-100 heading-serif">
         RTG BAKERY
       </h1>
     </div>
@@ -106,206 +97,7 @@
     <section class="relative bg-gradient-to-br from-amber-50 to-orange-100/50 dark:from-amber-950/20 dark:to-orange-950/10 border border-amber-100/70 dark:border-amber-900/40 rounded-3xl p-8 md:p-12 mb-8 overflow-hidden warm-glow">
       <div class="absolute -right-10 -bottom-10 text-9xl opacity-10 dark:opacity-5 select-none heading-serif font-bold text-amber-300">RTG</div>
       <div class="max-w-xl relative z-10">
-        <span onclick="showView('quality-view')" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-xs font-bold uppercase tracking-wider mb-4 cursor-pointer hover:bg-amber-200 transition-colors">
-          ✨ Baked Fresh on Order • Read Our Promise →
-        </span>
-        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-amber-950 dark:text-amber-100 heading-serif leading-tight">
-          Handcrafted Joy from <span class="text-amber-700 italic font-medium">RTG Bakery.</span>
-        </h2>
-        <p class="text-amber-900/80 dark:text-amber-200/80 text-sm mb-4 leading-relaxed">
-          Welcome to RTG Bakery! Sourced from Ananda Nagar, Guwahati. Scroll down to explore active offers and touch any category box below to view our daily selection.
-        </p>
-      </div>
-    </section>
-
-    <!-- ================= SEARCH BAR ================= -->
-    <section class="max-w-3xl mx-auto mb-10 px-2">
-      <div class="relative">
-        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-lg pointer-events-none">🔍</span>
-        <input
-          type="text"
-          id="global-search-input"
-          oninput="handleSearchInput()"
-          placeholder="Search for bread, cookies, cake..."
-          class="w-full bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 rounded-2xl pl-12 pr-11 py-4 text-sm font-medium text-amber-950 dark:text-amber-100 placeholder-amber-900/40 dark:placeholder-amber-400/50 focus:outline-none focus:border-amber-400 shadow-sm transition-colors"
-        >
-        <button
-          type="button"
-          onclick="clearSearchInput()"
-          id="search-clear-btn"
-          class="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 text-xs font-bold items-center justify-center hidden"
-        >✕</button>
-      </div>
-    </section>
-
-    <!-- ================= SEARCH RESULTS ================= -->
-    <section id="search-results-section" class="max-w-3xl mx-auto mb-16 hidden">
-      <h3 id="search-results-heading" class="text-sm font-bold uppercase tracking-wider text-amber-700 mb-4">Search Results</h3>
-      <div id="search-results-list" class="space-y-4"></div>
-    </section>
-
-    <!-- ================= DEFAULT BROWSE CONTENT ================= -->
-    <div id="default-browse-content">
-
-      <!-- ================= PROMOTIONAL SLIDER BANNER ================= -->
-      <section class="relative w-full overflow-hidden rounded-2xl mb-12 shadow-sm border border-amber-100 dark:border-amber-900/50 max-w-3xl mx-auto">
-        <div id="carousel-slides" class="flex transition-transform duration-700 ease-in-out" style="transform: translateX(0%);">
-          <!-- Slide 1: Fluffy Bread Feature -->
-          <div class="min-w-full relative aspect-[21/9] bg-amber-950">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-60" alt="Fresh Fluffy Bread">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white">
-              <span class="text-[9px] sm:text-xs font-black uppercase tracking-wider bg-amber-600 self-start px-2.5 py-1 rounded-md mb-2">Daily Fresh Batch</span>
-              <h3 class="text-base sm:text-2xl font-black heading-serif">Try our signature Fluffy Bread!</h3>
-              <p class="text-[10px] sm:text-xs text-amber-200/90 mt-1 font-medium">Get the 175g loaf for just ₹20 or the 80g loaf for ₹10. Baked fresh daily!</p>
-            </div>
-          </div>
-          <!-- Slide 2: Birthday & Premium Cakes Feature (URL TYPO FIXED HERE) -->
-          <div class="min-w-full relative aspect-[21/9] bg-amber-950">
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-60" alt="Premium Celebration Cakes">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white">
-              <span class="text-[9px] sm:text-xs font-black uppercase tracking-wider bg-amber-700 self-start px-2.5 py-1 rounded-md mb-2">Celebration Ready</span>
-              <h3 class="text-base sm:text-2xl font-black heading-serif">Delicious Premium Cakes for Every Occasion</h3>
-              <p class="text-[10px] sm:text-xs text-amber-200/90 mt-1 font-medium">From classic Vanilla (500g for ₹550) to rich Chocolate (500g for ₹600). Order yours now!</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Category Squares Selection Grid -->
-      <section id="category-selection-zone" class="mb-16">
-        <div class="text-center mb-8">
-          <span class="text-[10px] font-extrabold tracking-widest text-amber-600 uppercase">Interactive Menu</span>
-          <h3 class="text-2xl font-black text-amber-900 dark:text-amber-100 heading-serif mt-1">Browse by Category</h3>
-        </div>
-        
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto px-2">
-          <button onclick="openSpecialCategoryView('breads')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
-            <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍞</span>
-            <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Breads</span>
-          </button>
-          <button onclick="openSpecialCategoryView('biscuits')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
-            <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍪</span>
-            <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Biscuits</span>
-          </button>
-          <button onclick="openSpecialCategoryView('snacks')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
-            <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍕</span>
-            <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Snacks</span>
-          </button>
-          <button onclick="openSpecialCategoryView('cakes')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
-            <span class="text-4xl group-hover:scale-110 transition-transform select-none">🎂</span>
-            <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Cakes</span>
-          </button>
-        </div>
-      </section>
-
-      <!-- Real Customer Reviews ticker -->
-      <section class="max-w-3xl mx-auto mt-16 bg-amber-500/5 rounded-2xl p-6 border border-amber-500/10">
-        <h4 class="text-sm font-bold uppercase text-amber-700 mb-4 text-center">Loved by the neighborhood</h4>
-        <div class="text-center italic text-amber-900/80 dark:text-amber-200/85 text-sm" id="testimonial-box">
-          "The slow fermentation sourdough is so gentle on the stomach! Absolutely unmatched quality." - Aarav S.
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <!-- ================= OUR QUALITY PROMISE VIEW ================= -->
-  <main id="quality-view" class="flex-grow opacity-100 max-w-3xl w-full mx-auto px-6 py-12 hidden">
-    <div class="border-b border-amber-200 dark:border-amber-900 pb-6 mb-8">
-      <button onclick="showView('menu-view')" class="text-xs font-bold uppercase tracking-wider text-amber-700 hover:text-amber-900 transition mb-2 block">
-        ← Back to Bakery Counter
-      </button>
-      <h2 class="text-4xl font-black heading-serif text-amber-900 dark:text-amber-100 tracking-tight leading-tight">Our Quality Promise</h2>
-      <p class="text-amber-800/70 dark:text-amber-300/70 text-sm mt-1">Honest ingredients, slow craftsmanship, and zero shortcuts.</p>
-    </div>
-
-    <div class="space-y-12">
-      <div class="relative rounded-2xl overflow-hidden h-56 shadow-md border border-amber-100 dark:border-amber-900">
-        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Baker handling dough">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
-          <p class="text-white text-sm font-semibold italic">"Baking is a conversation between the grains, the yeasts, and the hand of the baker."</p>
-        </div>
-      </div>
-
-      <div class="space-y-8">
-        <div class="flex gap-4 items-start">
-          <div class="w-12 h-12 shrink-0 bg-amber-100 dark:bg-amber-950 rounded-xl flex items-center justify-center text-xl">🌾</div>
-          <div>
-            <h3 class="text-lg font-bold text-amber-950 dark:text-amber-100 heading-serif">1. 100% Organic, Stone-Ground Flour</h3>
-            <p class="text-amber-900/80 dark:text-amber-200/80 text-sm mt-1.5 leading-relaxed">
-              We never use bleached flours or bromated powders. All our sourdoughs and milk breads are prepared using stone-ground, locally sourced organic wheat.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex gap-4 items-start">
-          <div class="w-12 h-12 shrink-0 bg-amber-100 dark:bg-amber-950 rounded-xl flex items-center justify-center text-xl">🌱</div>
-          <div>
-            <h3 class="text-lg font-bold text-amber-950 dark:text-amber-100 heading-serif">2. Strictly No Preservatives or Chemicals</h3>
-            <p class="text-amber-900/80 dark:text-amber-200/80 text-sm mt-1.5 leading-relaxed">
-              Because everything is baked fresh directly on your order, we have no reason to use artificial shelf-life extenders or mold inhibitors.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- ================= EXCLUSIVE DESIGN CATEGORY VIEW ================= -->
-  <main id="special-category-view" class="flex-grow opacity-100 max-w-3xl w-full mx-auto px-6 py-12 hidden">
-    <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-6 border-b border-amber-100 dark:border-amber-900/40 scrollbar-none">
-      <button onclick="openSpecialCategoryView('breads')" id="pill-breads" class="px-4 py-2 rounded-xl text-xs font-bold border border-amber-200 bg-white text-amber-950 shrink-0 transition-all flex items-center gap-1.5">
-        <span>🍞</span> Breads
-      </button>
-      <button onclick="openSpecialCategoryView('biscuits')" id="pill-biscuits" class="px-4 py-2 rounded-xl text-xs font-bold border border-amber-200 bg-white text-amber-950 shrink-0 transition-all flex items-center gap-1.5">
-        <span>🍪</span> Biscuits
-      </button>
-      <button onclick="openSpecialCategoryView('snacks')" id="pill-snacks" class="px-4 py-2 rounded-xl text-xs font-bold border border-amber-200 bg-white text-amber-950 shrink-0 transition-all flex items-center gap-1.5">
-        <span>🍕</span> Snacks
-      </button>
-      <button onclick="openSpecialCategoryView('cakes')" id="pill-cakes" class="px-4 py-2 rounded-xl text-xs font-bold border border-amber-200 bg-white text-amber-950 shrink-0 transition-all flex items-center gap-1.5">
-        <span>🎂</span> Cakes
-      </button>
-    </div>
-
-    <div class="flex items-center justify-between pb-6 mb-8">
-      <div>
-        <button onclick="showView('menu-view')" class="text-xs font-bold uppercase tracking-wider text-amber-700 hover:text-amber-900 transition mb-2 block">
-          ← Back to Main Page
-        </button>
-        <h2 id="special-view-title" class="text-3xl font-black heading-serif text-amber-900 dark:text-amber-100">Custom Category</h2>
-      </div>
-      <span id="special-view-emoji" class="text-5xl select-none">🍞</span>
-    </div>
-
-    <div id="special-items-list" class="space-y-4"></div>
-  </main>
-
-  <!-- ================= TWO-STEP CHECKOUT HUB ================= -->
-  <main id="checkout-view" class="flex-grow opacity-100 max-w-6xl w-full mx-auto px-6 py-12 hidden">
-    <!-- Step Indicator Progress Bar -->
-    <div class="max-w-3xl mx-auto mb-10">
-      <div class="flex items-center justify-between relative">
-        <div class="absolute left-0 right-0 top-1/2 h-1 bg-amber-200 dark:bg-amber-900 -translate-y-1/2 z-0"></div>
-        <div id="line-progress" class="absolute left-0 top-1/2 h-1 bg-amber-700 -translate-y-1/2 z-0 transition-all duration-300" style="width: 0%;"></div>
-        
-        <div onclick="goToCheckoutStep(1)" class="z-10 flex flex-col items-center gap-2 cursor-pointer">
-          <div id="step-badge-1" class="w-10 h-10 rounded-full bg-amber-700 text-white font-black flex items-center justify-center shadow-md transition-all text-sm">1</div>
-          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300">Address & Map</span>
-        </div>
-        <div id="step-node-2" onclick="goToCheckoutStep(2)" class="z-10 flex flex-col items-center gap-2 pointer-events-none opacity-50">
-          <div id="step-badge-2" class="w-10 h-10 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-950 font-black flex items-center justify-center shadow-sm transition-all text-sm">2</div>
-          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300">Order Summary</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 1: CHOOSE ADDRESS & PIN ON MAP -->
-    <div id="checkout-step-1" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      <div class="lg:col-span-7 bg-white dark:bg-amber-950/10 border border-amber-100 dark:border-amber-900/40 p-6 rounded-2xl shadow-sm">
-        <div class="flex justify-between items-center border-b border-amber-50 dark:border-amber-900 pb-3 mb-6">
-          <h3 class="text-sm font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300">Step 1: Set Pinpoint & Contact</h3>
-          <span class="text-x        <span onclick="showView('quality-view')" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-xs font-bold uppercase tracking-wider mb-4 cursor-pointer hover:bg-amber-200 transition-colors">
+        <span onclick="showView('quality-view')" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/40 border border-amber-200 dark:border-amber-800 text-amber-900 dark:text-amber-200 text-xs font-bold uppercase tracking-wider mb-4 cursor-pointer hover:bg-amber-200 transition-colors">
           ✨ Baked Fresh on Order • Read Our Promise →
         </span>
         <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-amber-950 dark:text-amber-100 heading-serif leading-tight">
@@ -343,69 +135,70 @@
       <div id="search-results-list" class="space-y-4"></div>
     </section>
 
-    <!-- ================= DEFAULT BROWSE CONTENT ================= -->
+    <!-- ================= DEFAULT BROWSE CONTENT (hidden while searching) ================= -->
     <div id="default-browse-content">
 
-      <!-- ================= PROMOTIONAL SLIDER BANNER ================= -->
-      <section class="relative w-full overflow-hidden rounded-2xl mb-12 shadow-sm border border-amber-100 dark:border-amber-900/50 max-w-3xl mx-auto">
-        <div id="carousel-slides" class="flex transition-transform duration-700 ease-in-out" style="transform: translateX(0%);">
-          <!-- Slide 1: Fluffy Bread Feature -->
-          <div class="min-w-full relative aspect-[21/9] bg-amber-950">
-            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-60" alt="Fresh Fluffy Bread">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white">
-              <span class="text-[9px] sm:text-xs font-black uppercase tracking-wider bg-amber-600 self-start px-2.5 py-1 rounded-md mb-2">Daily Fresh Batch</span>
-              <h3 class="text-base sm:text-2xl font-black heading-serif">Try our signature Fluffy Bread!</h3>
-              <p class="text-[10px] sm:text-xs text-amber-200/90 mt-1 font-medium">Get the 175g loaf for just ₹20 or the 80g loaf for ₹10. Baked fresh daily!</p>
-            </div>
-          </div>
-          <!-- Slide 2: Birthday & Premium Cakes Feature (URL TYPO FIXED HERE) -->
-          <div class="min-w-full relative aspect-[21/9] bg-amber-950">
-            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-60" alt="Premium Celebration Cakes">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white">
-              <span class="text-[9px] sm:text-xs font-black uppercase tracking-wider bg-amber-700 self-start px-2.5 py-1 rounded-md mb-2">Celebration Ready</span>
-              <h3 class="text-base sm:text-2xl font-black heading-serif">Delicious Premium Cakes for Every Occasion</h3>
-              <p class="text-[10px] sm:text-xs text-amber-200/90 mt-1 font-medium">From classic Vanilla (500g for ₹550) to rich Chocolate (500g for ₹600). Order yours now!</p>
-            </div>
+    <!-- ================= PROMOTIONAL SLIDER BANNER ================= -->
+    <section class="relative w-full overflow-hidden rounded-2xl mb-12 shadow-sm border border-amber-100 dark:border-amber-900/50 max-w-3xl mx-auto">
+      <div id="carousel-slides" class="flex transition-transform duration-700 ease-in-out" style="transform: translateX(0%);">
+        <!-- Slide 1 -->
+        <div class="min-w-full relative aspect-[21/9] bg-amber-950">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-70" alt="Fresh Bread Offer">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white">
+            <span class="text-[9px] sm:text-xs font-black uppercase tracking-wider bg-amber-600 self-start px-2.5 py-1 rounded-md mb-2">Weekend Deal</span>
+            <h3 class="text-base sm:text-2xl font-black heading-serif">Buy 2 Get 1 Free on all Crusty Sourdough Breads!</h3>
+            <p class="text-[10px] sm:text-xs text-amber-200/90 mt-1 font-medium">Bake-to-order slots close at 11:00 AM daily.</p>
           </div>
         </div>
-      </section>
+        <!-- Slide 2 -->
+        <div class="min-w-full relative aspect-[21/9] bg-amber-950">
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover opacity-70" alt="Biscuit Offer">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-4 sm:p-8 text-white">
+            <span class="text-[9px] sm:text-xs font-black uppercase tracking-wider bg-amber-600 self-start px-2.5 py-1 rounded-md mb-2">Sweet Festival</span>
+            <h3 class="text-base sm:text-2xl font-black heading-serif">Flat 20% Off on Gourmet Choco Chip Cookies</h3>
+            <p class="text-[10px] sm:text-xs text-amber-200/90 mt-1 font-medium">Fresh butter & pure dark chocolate. Applied on checkout.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <!-- Category Squares Selection Grid -->
-      <section id="category-selection-zone" class="mb-16">
-        <div class="text-center mb-8">
-          <span class="text-[10px] font-extrabold tracking-widest text-amber-600 uppercase">Interactive Menu</span>
-          <h3 class="text-2xl font-black text-amber-900 dark:text-amber-100 heading-serif mt-1">Browse by Category</h3>
-        </div>
-        
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto px-2">
-          <button onclick="openSpecialCategoryView('breads')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
-            <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍞</span>
-            <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Breads</span>
-          </button>
-          <button onclick="openSpecialCategoryView('biscuits')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
-            <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍪</span>
-            <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Biscuits</span>
-          </button>
-          <button onclick="openSpecialCategoryView('snacks')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
-            <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍕</span>
-            <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Snacks</span>
-          </button>
-          <button onclick="openSpecialCategoryView('cakes')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
-            <span class="text-4xl group-hover:scale-110 transition-transform select-none">🎂</span>
-            <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Cakes</span>
-          </button>
-        </div>
-      </section>
+    <!-- Category Squares Selection Grid -->
+    <section id="category-selection-zone" class="mb-16">
+      <div class="text-center mb-8">
+        <span class="text-[10px] font-extrabold tracking-widest text-amber-600 uppercase">Interactive Menu</span>
+        <h3 class="text-2xl font-black text-amber-900 dark:text-amber-100 heading-serif mt-1">Browse by Category</h3>
+      </div>
+      
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto px-2">
+        <button onclick="openSpecialCategoryView('breads')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
+          <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍞</span>
+          <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Breads</span>
+        </button>
+        <button onclick="openSpecialCategoryView('biscuits')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
+          <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍪</span>
+          <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Biscuits</span>
+        </button>
+        <button onclick="openSpecialCategoryView('snacks')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
+          <span class="text-4xl group-hover:scale-110 transition-transform select-none">🍕</span>
+          <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Snacks</span>
+        </button>
+        <button onclick="openSpecialCategoryView('cakes')" class="aspect-square bg-white dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/50 hover:border-amber-400 rounded-2xl flex flex-col items-center justify-center gap-3 p-4 transition-all duration-200 hover:-translate-y-1 active:scale-95 shadow-sm group cursor-pointer">
+          <span class="text-4xl group-hover:scale-110 transition-transform select-none">🎂</span>
+          <span class="text-xs font-extrabold text-amber-950 dark:text-amber-100 uppercase tracking-wider">Cakes</span>
+        </button>
+      </div>
+    </section>
 
-      <!-- Real Customer Reviews ticker -->
-      <section class="max-w-3xl mx-auto mt-16 bg-amber-500/5 rounded-2xl p-6 border border-amber-500/10">
-        <h4 class="text-sm font-bold uppercase text-amber-700 mb-4 text-center">Loved by the neighborhood</h4>
-        <div class="text-center italic text-amber-900/80 dark:text-amber-200/85 text-sm" id="testimonial-box">
-          "The slow fermentation sourdough is so gentle on the stomach! Absolutely unmatched quality." - Aarav S.
-        </div>
-      </section>
+    <!-- Real Customer Reviews ticker -->
+    <section class="max-w-3xl mx-auto mt-16 bg-amber-500/5 rounded-2xl p-6 border border-amber-500/10">
+      <h4 class="text-sm font-bold uppercase text-amber-700 mb-4 text-center">Loved by the neighborhood</h4>
+      <div class="text-center italic text-amber-900/80 dark:text-amber-200/85 text-sm" id="testimonial-box">
+        "The slow fermentation sourdough is so gentle on the stomach! Absolutely unmatched quality." - Aarav S.
+      </div>
+    </section>
 
     </div>
+    <!-- /default-browse-content -->
   </main>
 
   <!-- ================= OUR QUALITY PROMISE VIEW ================= -->
@@ -419,6 +212,7 @@
     </div>
 
     <div class="space-y-12">
+      <!-- Image Card -->
       <div class="relative rounded-2xl overflow-hidden h-56 shadow-md border border-amber-100 dark:border-amber-900">
         <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover" alt="Baker handling dough">
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
@@ -480,7 +274,7 @@
     <div id="special-items-list" class="space-y-4"></div>
   </main>
 
-  <!-- ================= TWO-STEP CHECKOUT HUB ================= -->
+  <!-- ================= FLIPKART STYLE TWO-STEP CHECKOUT ================= -->
   <main id="checkout-view" class="flex-grow opacity-100 max-w-6xl w-full mx-auto px-6 py-12 hidden">
     <!-- Step Indicator Progress Bar -->
     <div class="max-w-3xl mx-auto mb-10">
@@ -499,12 +293,12 @@
       </div>
     </div>
 
-    <!-- STEP 1: CHOOSE ADDRESS & PIN ON MAP -->
+    <!-- ================= STEP 1: CHOOSE ADDRESS & PIN ON MAP ================= -->
     <div id="checkout-step-1" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       <div class="lg:col-span-7 bg-white dark:bg-amber-950/10 border border-amber-100 dark:border-amber-900/40 p-6 rounded-2xl shadow-sm">
         <div class="flex justify-between items-center border-b border-amber-50 dark:border-amber-900 pb-3 mb-6">
           <h3 class="text-sm font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300">Step 1: Set Pinpoint & Contact</h3>
-          <span class="text-xs text-amber-600 font-semibold italic">Drag the pin to choose coordinates</span>
+          <span class="text-xs text-amber-600 font-semibold italic">Drag the map or pin to choose coordinates</span>
         </div>
         
         <form class="space-y-5" onsubmit="event.preventDefault();">
@@ -519,6 +313,7 @@
             </div>
           </div>
 
+          <!-- The Live Interactive Map (OpenStreetMap / Leaflet) -->
           <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300 mb-2">Pinpoint Delivery Location on Map</label>
             <div class="border border-amber-100 dark:border-amber-900/50 rounded-2xl overflow-hidden relative shadow-sm">
@@ -564,7 +359,7 @@
       </div>
     </div>
 
-    <!-- STEP 2: ORDER & FINAL PAYMENT SUMMARY -->
+    <!-- ================= STEP 2: ORDER & FINAL PAYMENT SUMMARY ================= -->
     <div id="checkout-step-2" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start hidden">
       <div class="lg:col-span-7 bg-white dark:bg-amber-950/10 border border-amber-100 dark:border-amber-900/40 p-6 rounded-2xl shadow-sm">
         <div class="flex justify-between items-center border-b border-amber-50 dark:border-amber-900 pb-3 mb-6">
@@ -697,6 +492,8 @@
     
     // Constant Variables
     const DESTINATION_MERCHANT_UPI = "fahimulgoni999@upi";
+    // NOTE: wa.me requires the FULL international number, digits only, no + or leading 0.
+    // India country code is 91, so a local number like 8638628951 becomes 918638628951.
     const DESTINATION_MERCHANT_WHATSAPP_PHONE = "918638628951";
     const BAKERY_NAME = "RTG Bakery";
 
@@ -713,7 +510,7 @@
     let leafMapObj = null;
     let leafMarkerObj = null;
 
-    const bakeryInventory = {
+   const bakeryInventory = {
       breads: [
         { id: 1, name: "Fluffy Bread (175g)", desc: "Super soft, light, and perfectly baked fresh daily.", price: 20, tag: "Fresh" },
         { id: 2, name: "Fluffy Bread (80g)", desc: "Perfect smaller loaf, baked fresh daily.", price: 10, tag: "Fresh" },
@@ -774,6 +571,88 @@
       const defaultContent = document.getElementById('default-browse-content');
       const resultsList = document.getElementById('search-results-list');
       const heading = document.getElementById('search-results-heading');
+      
+      function handleItemBoxAction(productId, productName, basePrice, categoryKey) {
+      const item = bakeryInventory[categoryKey].find(i => i.id === productId);
+      if (!item) return;
+
+      // If item has size/weight options, pop open an interactive choices prompt
+      if (item.options && item.options.length > 0) {
+        openVariantSelectionModal(item);
+      } else {
+        // Direct addition for standard items without option criteria
+        addToCartWithOptions(productId, productName, basePrice, "");
+      }
+    }
+
+    function openVariantSelectionModal(item) {
+      // Remove any pre-existing modal container to prevent duplicates
+      const oldModal = document.getElementById('variant-popup-overlay');
+      if (oldModal) oldModal.remove();
+
+      // Create an elegant, smooth pop-up selector modal overlay
+      const modalHtml = `
+        <div id="variant-popup-overlay" class="fixed inset-0 bg-black/60 z-[70] flex items-center justify-center p-6 backdrop-blur-sm">
+          <div class="bg-white dark:bg-[#1c150f] rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-amber-100 dark:border-amber-900/50 transform scale-95 transition-all duration-200">
+            <h3 class="text-lg font-black heading-serif text-amber-950 dark:text-amber-100 mb-1">Select Variant</h3>
+            <p class="text-xs text-amber-600 font-semibold mb-4">Choose a size for ${item.name}</p>
+            
+            <div class="space-y-2.5 mb-6">
+              ${item.options.map((opt, idx) => `
+                <label class="flex items-center justify-between p-3.5 border border-amber-100 dark:border-amber-900 rounded-xl bg-amber-50/10 dark:bg-transparent cursor-pointer hover:border-amber-500 transition-all">
+                  <div class="flex items-center gap-3">
+                    <input type="radio" name="popup-variant-choice" value="${opt.name}|${opt.price}" ${idx === 0 ? 'checked' : ''} class="w-4 h-4 accent-amber-700">
+                    <span class="text-sm font-bold text-amber-950 dark:text-amber-50">${opt.name}</span>
+                  </div>
+                  <span class="text-sm font-black text-amber-900 dark:text-amber-200">₹${opt.price}</span>
+                </label>
+              `).join('')}
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="document.getElementById('variant-popup-overlay').remove()" class="w-full bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-300 font-bold py-3 rounded-xl text-xs uppercase tracking-wider text-center">
+                Cancel
+              </button>
+              <button onclick="confirmVariantAddition(${item.id}, '${item.name}')" class="w-full bg-amber-700 hover:bg-amber-800 text-white font-extrabold py-3 rounded-xl text-center shadow-md text-xs uppercase tracking-wider">
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', modalHtml);
+    }
+
+    function confirmVariantAddition(productId, productName) {
+      const selectedOption = document.querySelector('input[name="popup-variant-choice"]:checked');
+      if (!selectedOption) return;
+
+      const [variantName, priceStr] = selectedOption.value.split('|');
+      const finalPrice = parseInt(priceStr, 10);
+
+      addToCartWithOptions(productId, productName, finalPrice, variantName);
+      document.getElementById('variant-popup-overlay').remove();
+    }
+
+    function addToCartWithOptions(productId, productName, itemPrice, variantName) {
+      const uniqueCartId = variantName ? `${productId}-${variantName}` : `${productId}`;
+      
+      const discoveredMatch = applicationCartMatrix.find(record => record.cartId === uniqueCartId);
+      if (discoveredMatch) {
+        discoveredMatch.itemQuantity += 1;
+      } else {
+        applicationCartMatrix.push({
+          cartId: uniqueCartId,
+          id: productId,
+          itemName: productName,
+          itemPrice: itemPrice,
+          variantName: variantName,
+          itemQuantity: 1
+        });
+      }
+      saveCart();
+      renderGlobalCartState();
+    }
 
       if (query.length > 0) {
         clearBtn.classList.remove('hidden');
@@ -826,7 +705,7 @@
               <span class="block text-lg font-black text-amber-950 dark:text-amber-100">₹${item.price}</span>
             </div>
           </div>
-          <button onclick="addToCart(${item.id}, '${item.name}', ${item.price})" class="w-full bg-amber-50 hover:bg-amber-700 dark:bg-amber-950/20 hover:text-white border border-amber-700/20 text-amber-800 dark:text-amber-300 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
+          <button onclick="handleItemBoxAction(${item.id}, '${item.name}', ${item.price}, '${categoryKey}')" class="w-full bg-amber-50 hover:bg-amber-700 dark:bg-amber-950/20 hover:text-white border border-amber-700/20 text-amber-800 dark:text-amber-300 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
             + Add to Custom Box
           </button>
         </div>
@@ -959,6 +838,8 @@
       });
     }
 
+    // Auto-locate the customer using the browser's Geolocation API,
+    // then re-center the map and drop the delivery pin on their position.
     function locateUserOnMap() {
       const btn = document.getElementById('locate-me-btn');
       const icon = document.getElementById('locate-me-icon');
@@ -1009,6 +890,9 @@
       icon.innerText = "⏳";
       text.innerText = "Locating...";
 
+      // First attempt: high-accuracy GPS fix. This can time out indoors or
+      // with a weak signal, so on timeout we retry once with a faster,
+      // lower-accuracy network/Wi-Fi based lookup instead of just failing.
       navigator.geolocation.getCurrentPosition(
         onLocateSuccess,
         function (firstError) {
@@ -1030,7 +914,7 @@
     function calculateHaversineDistance(lat1, lon1, lat2, lon2) {
       const R = 6371; 
       const dLat = (lat2 - lat1) * Math.PI / 180;
-      const dLon = (now_lon2 - lon1) * Math.PI / 180;
+      const dLon = (lon2 - lon1) * Math.PI / 180;
       const a = 
         Math.sin(dLat/2) * Math.sin(dLat/2) +
         Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
@@ -1057,7 +941,6 @@
       }
     }
 
-    // Layout Router
     function showView(viewIdentifier) {
       document.getElementById('menu-view').classList.add('hidden');
       document.getElementById('checkout-view').classList.add('hidden');
@@ -1116,7 +999,6 @@
       goToCheckoutStep(2);
     }
 
-    // Baseline direct adding function
     function addToCart(productId, productName, productUnitRate) {
       const discoveredMatch = applicationCartMatrix.find(record => record.id === productId);
       if (discoveredMatch) {
@@ -1144,6 +1026,18 @@
       renderGlobalCartState();
     }
 
+   function modifyCartDelta(cartUniqueId, relationalOperatorDelta) {
+      const discoveredMatch = applicationCartMatrix.find(record => record.cartId === cartUniqueId);
+      if (!discoveredMatch) return;
+      discoveredMatch.itemQuantity += relationalOperatorDelta;
+      if (discoveredMatch.itemQuantity <= 0) {
+        applicationCartMatrix = applicationCartMatrix.filter(record => record.cartId !== cartUniqueId);
+      }
+      saveCart();
+      renderGlobalCartState();
+    }
+
+    // Save/Load helpers
     function saveCart() {
       localStorage.setItem('rtg-cart', JSON.stringify(applicationCartMatrix));
     }
@@ -1240,6 +1134,8 @@
 
       window.open(finalWhatsAppRouterLink, '_blank');
 
+      // Populate and show the on-screen confirmation so the customer has
+      // a clear receipt, independent of whatever happens in the WhatsApp tab.
       document.getElementById('confirm-order-id').innerText = orderId;
       document.getElementById('confirm-item-count').innerText = `${totalItemCount} item${totalItemCount !== 1 ? 's' : ''}`;
       document.getElementById('confirm-grand-total').innerText = `₹${grandTotalSum}`;
@@ -1247,6 +1143,8 @@
       confirmOverlay.classList.remove('hidden');
       confirmOverlay.classList.add('flex');
 
+      // Clear the cart now that the order has been handed off, so a
+      // returning customer doesn't see a stale box on their next visit.
       applicationCartMatrix = [];
       saveCart();
       renderGlobalCartState();
@@ -1260,6 +1158,7 @@
       showView('menu-view');
     }
 
+    // Run initial render on load
     document.addEventListener('DOMContentLoaded', renderGlobalCartState);
   </script>
 </body>
