@@ -61,15 +61,17 @@
 
   <!-- ================= HEADER / NAV ================= -->
   <header class="sticky top-0 z-40 bg-[#FAF6F0]/90 dark:bg-[#18120C]/90 backdrop-blur-xl border-b border-amber-100 dark:border-amber-950 px-6 py-4 flex justify-between items-center transition-all">
+    
+    <!-- LOCKED BRANDING BLOCK (Prevents Layout Shifting) -->
     <div class="flex items-center gap-3 cursor-pointer select-none shrink-0" onclick="showView('menu-view')">
       <div class="w-10 h-10 rounded-full border border-amber-700/20 bg-amber-950/5 flex items-center justify-center overflow-hidden shrink-0">
         <img 
-  src="logo.png" 
-  alt="RTG Bakery Logo" 
-  class="w-full h-full object-cover"
-  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-/>
-<span class="hidden text-xl select-none">🥖</span>
+          src="logo.png" 
+          alt="RTG Bakery Logo" 
+          class="w-full h-full object-cover"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        />
+        <span class="hidden text-xl select-none">🥖</span>
       </div>
       <h1 class="text-xl font-black tracking-tight text-amber-900 dark:text-amber-100 heading-serif shrink-0">
         RTG BAKERY
@@ -856,6 +858,7 @@
       }
     }
 
+    // Layout Router
     function showView(viewIdentifier) {
       document.getElementById('menu-view').classList.add('hidden');
       document.getElementById('checkout-view').classList.add('hidden');
@@ -914,7 +917,6 @@
       goToCheckoutStep(2);
     }
 
-    // Baseline direct adding function
     function addToCart(productId, productName, productUnitRate) {
       const discoveredMatch = applicationCartMatrix.find(record => record.id === productId);
       if (discoveredMatch) {
