@@ -60,14 +60,23 @@
 </head>
 <body class="bg-[#FAF6F0] text-amber-950 dark:bg-[#18120C] dark:text-amber-50 min-h-screen flex flex-col pb-28 selection:bg-amber-200 dark:selection:bg-amber-900 selection:text-amber-950">
 
-  <!-- ================= HEADER / NAV ================= -->
-  <header class="sticky top-0 z-40 bg-[#FAF6F0]/90 dark:bg-[#18120C]/90 backdrop-blur-xl border-b border-amber-100 dark:border-amber-950 px-6 py-4 flex justify-between items-center transition-all">
-    <div class="flex items-center gap-3 cursor-pointer" onclick="showView('menu-view')">
-      <div class="w-8 h-8 rounded-lg bg-amber-700 flex items-center justify-center text-white font-black text-lg">🥖</div>
-      <h1 class="text-xl font-black tracking-tight text-amber-900 dark:text-amber-100 heading-serif">
-        RTG BAKERY
-      </h1>
-    </div>
+  <!-- LOCKED BRANDING BLOCK (Prevents Layout Shifting) -->
+<div class="flex items-center gap-3 cursor-pointer" onclick="showView('menu-view')">
+  <div class="w-8 h-8 rounded-lg bg-amber-700/10 dark:bg-amber-950/20 flex items-center justify-center overflow-hidden shrink-0">
+    <img 
+      src="logo.png" 
+      alt="Logo" 
+      class="w-full h-full object-cover rounded-lg"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+    />
+    <!-- Safe text backup inside the exact same container size -->
+    <span class="hidden text-base select-none leading-none">🥖</span>
+  </div>
+  
+  <h1 class="text-xl font-black tracking-tight text-amber-900 dark:text-amber-100 heading-serif shrink-0">
+    RTG BAKERY
+  </h1>
+</div>
     
     <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-amber-800 dark:text-amber-300">
       <button onclick="showView('menu-view')" class="hover:text-amber-600 transition">Standard View</button>
@@ -510,7 +519,7 @@
     let leafMapObj = null;
     let leafMarkerObj = null;
 
-    const bakeryInventory = {
+   const bakeryInventory = {
       breads: [
         { id: 1, name: "Fluffy Bread (175g)", desc: "Super soft, light, and perfectly baked fresh daily.", price: 20, tag: "Fresh" },
         { id: 2, name: "Fluffy Bread (80g)", desc: "Perfect smaller loaf, baked fresh daily.", price: 10, tag: "Fresh" },
@@ -518,19 +527,33 @@
       ],
       biscuits: [
         { id: 4, name: "Sweet Biscuit (400g)", desc: "Perfectly baked sugary crunch snacks for everyone.", price: 120, tag: "400g Pack" },
-        { id: 5, name: "Salted Biscuit (400g)", desc: "Crispy, savory delights with balanced salt crust layers.", price: 110, tag: "400g Pack" }
+        { id: 5, name: "Salted Biscuit (400g)", desc: "Crispy, savory delights with balanced salt crust layers.", price: 110, tag: "400g Pack" },
+        { id: 6, name: "Chocochip Cookies (Per kg)", desc: "Gourmet crunchy cookies loaded with rich chocolate chips.", price: 400, tag: "Per KG" },
+        { id: 7, name: "Cornflex Cookies (Per kg)", desc: "Crispy, golden cookies with a sweet cornflake crunch texture.", price: 350, tag: "Per KG" },
+        { id: 8, name: "Black Cumin Cookies (Per kg)", desc: "Aromatic savory cookies perfectly baked with black cumin seeds.", price: 350, tag: "Per KG" }
       ],
       snacks: [
-        { id: 6, name: "Veg Patties", desc: "Crispy puff pastry stuffed with spiced mixed vegetables.", price: 20, tag: "Warm Snack" },
-        { id: 7, name: "Egg Patties", desc: "Golden flaky shell layer featuring seasoned egg filling.", price: 30, tag: "Warm Snack" },
-        { id: 8, name: "Chicken Patties", desc: "Savory seasoned minced chicken inside a baked golden pastry.", price: 40, tag: "Warm Snack" },
-        { id: 9, name: "Samosa", desc: "Traditional crisp deep-fried crust packed with spiced potatoes.", price: 20, tag: "Freshly Fried" },
-        { id: 10, name: "Cream Roll", desc: "Sweet flaky baked cylinder tubes filled with luscious sweet cream.", price: 20, tag: "Sweet Treat" },
-        { id: 11, name: "Cream Bun", desc: "Soft pillow bun packed to the brim with fluffy sweet frosting.", price: 15, tag: "Sweet Treat" },
-        { id: 12, name: "Paneer Patties", desc: "Puff pastry turnover stuffed with rich spiced cottage cheese.", price: 30, tag: "Warm Snack" }
+        { id: 9, name: "Veg Patties", desc: "Crispy puff pastry stuffed with spiced mixed vegetables.", price: 20, tag: "Warm Snack" },
+        { id: 10, name: "Egg Patties", desc: "Golden flaky shell layer featuring seasoned egg filling.", price: 30, tag: "Warm Snack" },
+        { id: 11, name: "Chicken Patties", desc: "Savory seasoned minced chicken inside a baked golden pastry.", price: 40, tag: "Warm Snack" },
+        { id: 12, name: "Samosa", desc: "Traditional crisp deep-fried crust packed with spiced potatoes.", price: 20, tag: "Freshly Fried" },
+        { id: 13, name: "Cream Roll", desc: "Sweet flaky baked cylinder tubes filled with luscious sweet cream.", price: 20, tag: "Sweet Treat" },
+        { id: 14, name: "Cream Bun", desc: "Soft pillow bun packed to the brim with fluffy sweet frosting.", price: 15, tag: "Sweet Treat" },
+        { id: 15, name: "Paneer Patties", desc: "Puff pastry turnover stuffed with rich spiced cottage cheese.", price: 30, tag: "Warm Snack" },
+        { id: 16, name: "Chicken Roll", desc: "Delicious tender shredded chicken wrapped in a warm soft paratha wrapper.", price: 180, tag: "Top Seller" },
+        { id: 17, name: "Paneer Roll", desc: "Soft, seasoned cottage cheese blocks rolled with crisp fresh veggies.", price: 160, tag: "Fresh Roll" },
+        { id: 18, name: "Veg Roll", desc: "Wholesome, perfectly spiced assorted sautéed garden vegetables.", price: 120, tag: "Healthy Pick" },
+        { id: 19, name: "Veg Burger", desc: "Crispy vegetable patty layered with fresh lettuce and bakery sauce.", price: 60, tag: "Classic Burger" },
+        { id: 20, name: "Chicken Burger", desc: "Juicy, well-seasoned chicken patty cooked to golden perfection.", price: 110, tag: "Hearty Burger" },
+        { id: 21, name: "Paneer Pizza", desc: "Freshly baked personal crust topped with robust marinara and paneer cubes.", price: 120, tag: "Cheesy" },
+        { id: 22, name: "Chicken Pizza", desc: "Premium shredded oven-baked chicken distributed over gooey mozzarella layers.", price: 160, tag: "Premium Crust" }
       ],
       cakes: [
-        { id: 13, name: "Chocolate Fudge Cake", desc: "Rich chocolate layers iced with dark fudge frosting.", price: 550, tag: "Eggless Premium" }
+        { id: 23, name: "Vanilla Cake (500g)", desc: "Classic soft sponge cake topped with elegant whipped vanilla frosting.", price: 550, tag: "Fresh Bake" },
+        { id: 24, name: "Chocolate Cake (500g)", desc: "Decadent dark cocoa sponge filled and glazed with gourmet chocolate cream.", price: 600, tag: "Rich Cocoa" },
+        { id: 25, name: "Red Velvet Cake (Per kg)", desc: "Luxurious deep red velvet layers balanced with smooth cream cheese frosting.", price: 750, tag: "Premium Choice" },
+        { id: 26, name: "Butterscotch Cake (Per kg)", desc: "Crunchy butterscotch praline chunks nested in caramelized sweet layers.", price: 600, tag: "Per KG" },
+        { id: 27, name: "Swiss Roll (400g)", desc: "Soft, rolled sponge cake spiraled tightly with rich cream layers.", price: 110, tag: "400g Pack" }
       ]
     };
 
